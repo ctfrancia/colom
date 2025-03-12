@@ -8,3 +8,5 @@ This frontend is meant to be a collection of stats, notes, games etc. for the [c
 ## Contributing
 If you want to contribute to this project, please read the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
+## License
+[MIT](LICENSE)
