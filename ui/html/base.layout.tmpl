@@ -1,7 +1,7 @@
 {{define "base"}}
 <!DOCTYPE html>
 <html lang="ca"> 
-<head>
+    <head>
         <meta charset='utf-8'>
         <title>{{template "title" .}} - Colom</title>
         <!-- Link to the CSS stylesheet and favicon -->
@@ -10,9 +10,11 @@
             <link rel='shortcut icon' href='/static/img/favicon.ico' type='image/x-icon'>
         -->
         <!-- Also link to some fonts hosted by Google -->
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700'>
     </head>
-    <body>
+     <body>
         <main>
             {{ template "main" .}}
         </main>
