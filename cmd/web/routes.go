@@ -7,12 +7,10 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 )
 
-func (a application) routes() http.Handler {
+func (app application) routes() http.Handler {
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
-	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("welcome"))
-	})
+	r.Get("/", app.home)
 
 	return r
 }

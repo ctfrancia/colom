@@ -4,7 +4,17 @@ import (
 	"html/template"
 	"path/filepath"
 	"time"
+
+	"github.com/ctfrancia/colom/pkg/forms"
 )
+
+type templateData struct {
+	CSRFToken       string
+	CurrentYear     int
+	Form            *forms.Form
+	Flash           string
+	IsAuthenticated bool
+}
 
 var functions = template.FuncMap{
 	"humanDate": humanDate,

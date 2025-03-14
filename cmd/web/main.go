@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -13,7 +12,6 @@ type application struct {
 }
 
 func main() {
-	fmt.Println("Hello, World!")
 	templateCache, err := newTemplateCache("./ui/html")
 	if nil != err {
 		log.Fatal(err)
