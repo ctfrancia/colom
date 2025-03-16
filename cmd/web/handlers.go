@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 )
 
 func (app *application) home(w http.ResponseWriter, r *http.Request) {
@@ -10,8 +11,13 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 		// app.notFound(w)
 		return
 	}
+	date := time.Now()
 
-	app.render(w, r, "home.page.tmpl", &templateData{})
+	td := &templateData{
+		CurrentYear: date.Year(),
+	}
+
+	app.render(w, r, "home.page.tmpl", td)
 }
 
 func (app *application) login(w http.ResponseWriter, r *http.Request) {

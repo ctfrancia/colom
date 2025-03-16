@@ -14,10 +14,128 @@
         <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700'>
     </head>
-     <body>
+     <body class="bg-black-100 min-h-screen flex flex-col">
+   <!-- Navigation Bar -->
+    <nav class="bg-blue-600 text-white shadow-lg w-full">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between">
+                <!-- Logo / Brand -->
+                <div class="flex space-x-4">
+                    <div>
+                        <a href="#" class="flex items-center py-5 px-2 text-white">
+                            <svg class="h-6 w-6 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </svg>
+                            <span class="font-bold">MyWebsite</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Primary Nav (Desktop) -->
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="#" class="py-5 px-3 hover:bg-blue-700 rounded"
+                           hx-get="/home" 
+                           hx-target="#content" 
+                           hx-swap="innerHTML">
+                            Home
+                        </a>
+                        <a href="#" class="py-5 px-3 hover:bg-blue-700 rounded"
+                           hx-get="/about" 
+                           hx-target="#content" 
+                           hx-swap="innerHTML">
+                            About
+                        </a>
+                        <a href="#" class="py-5 px-3 hover:bg-blue-700 rounded"
+                           hx-get="/services" 
+                           hx-target="#content" 
+                           hx-swap="innerHTML">
+                            Services
+                        </a>
+                        <a href="#" class="py-5 px-3 hover:bg-blue-700 rounded"
+                           hx-get="/contact" 
+                           hx-target="#content" 
+                           hx-swap="innerHTML">
+                            Contact
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Secondary Nav (Login/Signup) -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#" class="py-2 px-3 bg-blue-700 hover:bg-blue-800 text-white rounded-md"
+                       hx-get="/login" 
+                       hx-target="#content" 
+                       hx-swap="innerHTML">
+                        Login
+                    </a>
+                    <a href="#" class="py-2 px-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
+                       hx-get="/signup" 
+                       hx-target="#content" 
+                       hx-swap="innerHTML">
+                        Signup
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button focus:outline-none" 
+                            hx-get="/toggle-menu"
+                            hx-swap="none"
+                            hx-trigger="click">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden" id="mobile-menu">
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-700"
+               hx-get="/home" 
+               hx-target="#content" 
+               hx-swap="innerHTML">
+                Home
+            </a>
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-700"
+               hx-get="/about" 
+               hx-target="#content" 
+               hx-swap="innerHTML">
+                About
+            </a>
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-700"
+               hx-get="/services" 
+               hx-target="#content" 
+               hx-swap="innerHTML">
+                Services
+            </a>
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-700"
+               hx-get="/contact" 
+               hx-target="#content" 
+               hx-swap="innerHTML">
+                Contact
+            </a>
+            <div class="py-2 px-4 flex space-x-2">
+                <a href="#" class="py-2 px-3 bg-blue-700 hover:bg-blue-800 text-white rounded-md text-sm"
+                   hx-get="/login" 
+                   hx-target="#content" 
+                   hx-swap="innerHTML">
+                    Login
+                </a>
+                <a href="#" class="py-2 px-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md text-sm"
+                   hx-get="/signup" 
+                   hx-target="#content" 
+                   hx-swap="innerHTML">
+                    Signup
+                </a>
+            </div>
+        </div>
+    </nav>
         <main>
+            <!-- Content Area -->
             {{ template "main" .}}
         </main>
+        {{ template "footer" .}}
     </body>
 </html>
 {{end}}

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -25,7 +26,9 @@ func main() {
 		WriteTimeout: 10 * time.Second,
 	}
 
-	log.Fatal(srv.ListenAndServe())
+	// log.Fatal(srv.ListenAndServe())
+
+	fmt.Println("Starting server on :4000")
 	err = srv.ListenAndServe()
 	if nil != err {
 		log.Fatal(err)
